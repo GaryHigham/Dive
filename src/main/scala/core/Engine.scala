@@ -1,6 +1,6 @@
 package core
 
-import org.lwjgl.util.Display
+import org.lwjgl.opengl.Display
 import org.lwjgl.opengl.DisplayMode
 
 object Engine {

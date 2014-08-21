@@ -1,3 +1,6 @@
-addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "2.1.2")
+addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "2.5.0")
 
-addSbtPlugin("com.github.philcali" % "sbt-lwjgl-plugin" % "3.1.4")
+
+lazy val root = (project in file(".")).dependsOn(assemblyPlugin)
+
+lazy val assemblyPlugin = uri("git://github.com/philcali/sbt-lwjgl-plugin.git")

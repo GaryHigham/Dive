@@ -1,3 +1,5 @@
+import core.Engine
+
 object Hi {
-  def main(args: Array[String]) = println("Hi!")
+  def main(args: Array[String]) = Engine start
 }
