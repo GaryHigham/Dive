@@ -1,19 +1,28 @@
 package core
 
-import org.lwjgl.opengl.Display
-import org.lwjgl.opengl.DisplayMode
+class Engine {
 
-object Engine {
+	val renderer: Renderer = new Renderer
+	val scene: Scene = new Scene
 
-  def start() = {
-    Display.setDisplayMode(new DisplayMode(800,600));
-    Display.create();
-    run
-  }
+  	def start(gameUpdateLoop: () => Unit) = {
+    	renderer setDisplayMode(400, 400)
+    	run(gameUpdateLoop)
+  	}
   
-  def run():Unit = {
-    Display.update();
-    run
-  }
-  
+  	def run(gameUpdateLoop: () => Unit):Unit = {
+  		gameUpdateLoop()
+  		update
+  		render
+    	run(gameUpdateLoop)
+  	}
+
+  	def update = {
+  		scene update
+  	}
+
+  	def render = {
+  		renderer render(scene)
+  	}
+
 }

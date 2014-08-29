@@ -2,5 +2,5 @@ name := "Dive Game Engine"
 
 version := "0.1"
 
-seq(lwjglSettings: _*)
+seq(Slick2D.slickSettings: _*)
 
