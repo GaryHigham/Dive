@@ -7,32 +7,23 @@ import game.SpaceShip
 object Hi {
 
   val engine: Engine = new Engine
+  var setup: Boolean = false;
 
   def main(args: Array[String]) = {
-  	setupThings
-  	engine.start(update)
+    engine.start(update)
   }
 
   def update() = {
-  	println("Game update loop")
+    println("Game update loop")
+    if (!setup) {
+      setupThings
+      setup = true;
+    }
   }
 
   def setupThings() {
-  	/*
-  	val texture: Texture = TextureLoader.getTexture("JPG", ResourceLoader.getResourceAsStream("/Users/highag01/Documents/workspace/Dive/resources/logo.jpg"));
-
-	println("Texture loaded: "+texture);
-
-	println(">> Image width: "+texture.getImageWidth());
-
-	println(">> Image height: "+texture.getImageHeight());
-
-	println(">> Texture width: "+texture.getTextureWidth());
-
-	println(">> Texture height: "+texture.getTextureHeight());
-
-	println(">> Texture ID: "+texture.getTextureID());
-	*/
-  	engine.scene.addThing(new SpaceShip)
+    val ship = new SpaceShip
+    ship.load
+    engine.scene.addThing(ship)
   }
 }
